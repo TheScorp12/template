@@ -1,0 +1,63 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Take Art to Heart API Documentation",
+      "description": "List of all API endpoints which can be used in your applications."
+    },
+    "basePath": "/",
+    "host": "localhost:5000",
+    "schemes": ["http"],
+    "paths": {
+        "/login": {
+            "post": {
+              "tags": ["Authentication"],
+              "summary": "Login to the application",
+              "description": "Send a post request with body containing email and password to login",
+              "requestBody": {
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "email": {
+                          "type": "string"
+                        },
+                        "password": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "responses": {
+                "200": {
+                  "description": "User details on succesfull login",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "email": {
+                            "type": "string"
+                          },
+                          "username": {
+                            "type": "string"
+                          },
+                          "contact number": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "401": {
+                  "description": "Invalid credentials"
+                }
+              }
+            }
+          }
+    }
+}
